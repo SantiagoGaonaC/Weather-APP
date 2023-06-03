@@ -1,0 +1,34 @@
+frontend-weather-app/node_modules
+/frontend-weather-app/node_modules
+frontend-weather-app/.env
+/frontend-weather-app/.env
+BackendWeatherAPP/BackendWeatherAPP/bin/
+/BackendWeatherAPP/BackendWeatherAPP/bin/
+*bin/
+*/node_modules
+# Ignore build output
+dist/
+
+
+*appsettings.json
+
+# Ignore environment files
+.env
+.env.local
+
+# Ignore IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Ignore log files
+*.log
+
+# Ignore build cache
+.cache/
+
+
+## WEB API
+BackendWeatherAPP/bin
+BackendWeatherAPP/obj
