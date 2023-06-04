@@ -22,6 +22,8 @@ builder.Services.AddScoped<WeatherService>();
 builder.Services.AddScoped<RegisterService>();
 //SERVICE LAYER - Servicio de LoginService
 builder.Services.AddScoped<LoginService>();
+//SERIVE LAYER - Servicio para obtener datos del clima de la API
+builder.Services.AddScoped<GetWeatherCityService>();
 //SERVICE DE AUTENTICACIÓN
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -34,6 +36,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = false
         };
     });
+// Añadir configuración de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:8080")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
 
 var app = builder.Build();
 
@@ -45,6 +58,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+// Use CORS antes de UseAuthentication y UseAuthorization
+app.UseCors();
 
 app.UseAuthentication();
 app.UseAuthorization();
