@@ -1,11 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BackendWeatherAPP.Data;
 using BackendWeatherAPP.Data.WeatherModels;
-using Microsoft.EntityFrameworkCore;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Text.Json.Serialization;
 using BackendWeatherAPP.Services;
 using Microsoft.AspNetCore.Authorization;
 

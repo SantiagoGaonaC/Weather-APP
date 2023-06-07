@@ -1,12 +1,7 @@
 ﻿using BackendWeatherAPP.Data;
 using BackendWeatherAPP.Data.WeatherModels;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System.Text.Json.Serialization;
-using Microsoft.Extensions.Configuration;
 
 //Service Layer
 namespace BackendWeatherAPP.Services

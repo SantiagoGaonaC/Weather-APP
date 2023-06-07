@@ -22,8 +22,10 @@ builder.Services.AddScoped<WeatherService>();
 builder.Services.AddScoped<RegisterService>();
 //SERVICE LAYER - Servicio de LoginService
 builder.Services.AddScoped<LoginService>();
-//SERIVE LAYER - Servicio para obtener datos del clima de la API
+//SERVICE LAYER - Servicio para obtener datos del clima de la API
 builder.Services.AddScoped<GetWeatherCityService>();
+//SERVICE LAYER - Servicio para obtener UserId
+builder.Services.AddScoped<UserIdService>();
 //SERVICE DE AUTENTICACIÓN
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

@@ -1,18 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BackendWeatherAPP.Data;
 using BackendWeatherAPP.Data.WeatherModels;
-using Microsoft.EntityFrameworkCore;
 using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Text.Json.Serialization;
 using BackendWeatherAPP.Services;
 using BackendWeatherAPP.Data.DTOs;
-using BackendWeatherAPP.Data.WeatherModels;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Text;
 
 namespace BackendWeatherAPP.Controllers
 {

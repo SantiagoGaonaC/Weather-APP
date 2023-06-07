@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BackendWeatherAPP.Data.WeatherModels;
+﻿namespace BackendWeatherAPP.Data.WeatherModels;
 
 public partial class Sesione
 {
