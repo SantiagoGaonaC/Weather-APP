@@ -1,49 +1,14 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import LogoutButton from './components/LogoutButton';
+import FindUserId from './components/findUserId';
+import WeatherTypes from './utils/constants/weatherTypes';
 import './App.css'
-
-// const Api_key = "no-use";
 
 const App = ({ token, handleLogout }) => {
   const inputRef = useRef(null);
   const [apiData, setApiData] = useState(null);
   const [showWeather, setShowWeather] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const WeatherTypes = [
-    {
-      type: "Clear",
-      img: "https://cdn-icons-png.flaticon.com/512/6974/6974833.png",
-    },
-    {
-      type: "Rain",
-      img: "https://cdn-icons-png.flaticon.com/512/3351/3351979.png",
-    },
-    {
-      type: "Snow",
-      img: "https://cdn-icons-png.flaticon.com/512/642/642102.png",
-    },
-    {
-      type: "Clouds",
-      img: "https://cdn-icons-png.flaticon.com/512/414/414825.png",
-    },
-    {
-      type: "Haze",
-      img: "https://cdn-icons-png.flaticon.com/512/1197/1197102.png",
-    },
-    {
-      type: "Smoke",
-      img: "https://cdn-icons-png.flaticon.com/512/4380/4380458.png",
-    },
-    {
-      type: "Mist",
-      img: "https://cdn-icons-png.flaticon.com/512/4005/4005901.png",
-    },
-    {
-      type: "Drizzle",
-      img: "https://cdn-icons-png.flaticon.com/512/3076/3076129.png",
-    },
-  ];
 
   const fetchWeather = async () => {
     const URL = `${import.meta.env.VITE_REACT_APP_API_URL}${inputRef.current.value}`;
@@ -78,8 +43,13 @@ const App = ({ token, handleLogout }) => {
         setLoading(false);
       });
   };
+
   return (
-    <div className="bg-gray-800 h-screen grid place-items-center">
+    <>
+    <div className="bg-gray-800 flex flex-col h-screen justify-center items-center">
+    <p>
+    <FindUserId token={token} especialText={"Hey!👋"} displayUserId={false} className="uppercase text-2xl tracking-tight text-gray-900 dark:text-white font-semibold"/>
+    </p>
       <div className="bg-white w-96 p-4 rounded-md">
         <div className="flex items-center justify-between">
           <input
@@ -146,7 +116,9 @@ const App = ({ token, handleLogout }) => {
         </div>
         <LogoutButton handleLogout={handleLogout} />
       </div>
+      <FindUserId token={token} especialText={"You ID:"} className={"dark:text-white"} displayUsername={false} displayUserId={true} />
     </div>
+    </>
   );
 }
 
