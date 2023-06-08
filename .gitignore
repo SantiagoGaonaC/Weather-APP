@@ -9,7 +9,6 @@ BackendWeatherAPP/BackendWeatherAPP/bin/
 # Ignore build output
 dist/
 
-
 *appsettings.json
 
 # Ignore environment files
@@ -20,6 +19,7 @@ dist/
 
 # Ignore IDE and editor files
 .idea/
+*.vs/
 .vscode/
 *.swp
 *.swo

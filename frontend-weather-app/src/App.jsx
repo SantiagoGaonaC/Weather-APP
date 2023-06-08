@@ -4,11 +4,12 @@ import FindUserId from './components/findUserId';
 import WeatherTypes from './utils/constants/weatherTypes';
 import './App.css'
 
-const App = ({ token, handleLogout }) => {
+const App = ({ handleLogout }) => {
   const inputRef = useRef(null);
   const [apiData, setApiData] = useState(null);
   const [showWeather, setShowWeather] = useState(null);
   const [loading, setLoading] = useState(false);
+  const token = window.localStorage.getItem('token');
 
   const fetchWeather = async () => {
     const URL = `${import.meta.env.VITE_REACT_APP_API_URL}${inputRef.current.value}`;
@@ -47,9 +48,12 @@ const App = ({ token, handleLogout }) => {
   return (
     <>
     <div className="bg-gray-800 flex flex-col h-screen justify-center items-center">
-    <p>
-    <FindUserId token={token} especialText={"Hey!👋"} displayUserId={false} className="uppercase text-2xl tracking-tight text-gray-900 dark:text-white font-semibold"/>
-    </p>
+    <FindUserId
+    token={token}
+    especialText={"Hey!👋"}
+    displayUserId={false}
+    className="uppercase text-2xl tracking-tight text-gray-900 dark:text-white font-semibold"
+    />
       <div className="bg-white w-96 p-4 rounded-md">
         <div className="flex items-center justify-between">
           <input
@@ -116,7 +120,13 @@ const App = ({ token, handleLogout }) => {
         </div>
         <LogoutButton handleLogout={handleLogout} />
       </div>
-      <FindUserId token={token} especialText={"You ID:"} className={"dark:text-white"} displayUsername={false} displayUserId={true} />
+      <FindUserId 
+      token={token}
+      especialText={"You ID:"}
+      className={"dark:text-white"}
+      displayUsername={false}
+      displayUserId={true}
+      />
     </div>
     </>
   );

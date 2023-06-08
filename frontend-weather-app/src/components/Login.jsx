@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import App from '../App';
 
@@ -7,6 +7,13 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [token, setToken] = useState(null);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const token = window.localStorage.getItem('token');
+    if(token) {
+      setToken(token);
+    }
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,6 +28,7 @@ const Login = () => {
 
       if (response.status === 200) {
         setToken(response.data.token);
+        localStorage.setItem('token', response.data.token);
       }
     } catch (err) {
       setError("Error al iniciar sesión, por favor intenta de nuevo.");
@@ -29,6 +37,7 @@ const Login = () => {
 
   const handleLogout = () => {
     setToken(null);
+    window.localStorage.removeItem('token');
   };
 
   return token ? (
